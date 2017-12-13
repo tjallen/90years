@@ -7,19 +7,22 @@ export default class DateInput extends Component {
     this.state = {
       date: null,
     };
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  onSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     if (this._input.value.length !== 10) {
       alert('please enter full birthdate');
       return;
     };
-    console.log('submitted', this._input.value, this._input.value.length)
+    const date = this._input.value;
+    this.setState({
+      date,
+    }, this.props.onSubmit(date));
   }
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label>Enter your birthday</label>
         <input ref={(input) => this._input = input} type="date" />
         <input type="submit" />
