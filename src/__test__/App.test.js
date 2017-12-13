@@ -20,8 +20,21 @@ describe('App', () => {
   it('should have initial state of birthDate: null', () => {
     expect(app.state().birthDate).toBe(null);
   });
-  it('should update its internal state when onBirthDateUpdate called');
 });
+
+describe('App interaction tests', () => {
+  const expectedDateValue = '01-01-1901';
+  let app;
+  beforeEach(() => {
+    app = mount(<App />);
+    app.find('input[type="date"]').instance().value = expectedDateValue;
+  });
+  it('should update its internal state when handleBirthDateChange called', () => {
+    const dateInput = app.find(DateInput);
+    dateInput.find('form').simulate('submit', { preventDefault: jest.fn() });
+    expect(app.state().birthDate).toBe(expectedDateValue);
+  });
+})
 
 describe('Life', () => {
   const life = shallow(<Life />);
