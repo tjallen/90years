@@ -9,7 +9,7 @@ Week.defaultProps = {
 };
 
 Week.propTypes = {
-  active: PropTypes.bool,
+  active: PropTypes.bool.isRequired,
 };
 
 export default Week;

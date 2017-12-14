@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 import './App.css';
 import Life from './Life';
 import DateInput from './DateInput';
-import dateFns from 'date-fns';
-window.dateFns = dateFns;
+import { format, differenceInWeeks } from 'date-fns'; 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       birthDate: null,
-      today: dateFns.format(Date.now(), 'YYYY-MM-DD'),
+      today: format(Date.now(), 'YYYY-MM-DD'),
     };
     this.handleBirthDateChange = this.handleBirthDateChange.bind(this);
   }
   handleBirthDateChange(birthDate) {
     this.setState({
       birthDate,
-      weeksOld: dateFns.differenceInWeeks(this.state.today, birthDate),
+      weeksOld: differenceInWeeks(this.state.today, birthDate),
     });
-  }
-  componentDidUpdate() {
-    console.log('birthDate submitted', this.state.birthDate) 
   }
   render() {
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Year from './Year';
 import Label from './Label';
 import GraphKey from './GraphKey';
@@ -21,6 +22,10 @@ const Life = ({ yearsInLife, weeksOld }) =>
 
 Life.defaultProps = {
   yearsInLife: 90,
+};
+Life.propTypes = {
+  yearsInLife: PropTypes.number.isRequired,
+  weeksOld: PropTypes.number,
 };
 
 export default Life;

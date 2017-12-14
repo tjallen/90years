@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Week from './Week';
 
 export default class Year extends Component {
@@ -21,5 +22,10 @@ export default class Year extends Component {
 };
 
 Year.defaultProps = {
-  weeksInYear: 52,
+  weeksInYear: 52
 };
+Year.propTypes = {
+  weeksInYear: PropTypes.number.isRequired,
+  weeksOld: PropTypes.number,
+  value: PropTypes.number,
+}

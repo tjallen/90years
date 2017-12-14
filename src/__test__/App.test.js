@@ -5,7 +5,7 @@ import { shallow, configure, mount } from 'enzyme';
 import App from './../App';
 import DateInput from './../DateInput';
 import ReactTestUtils from 'react-dom/test-utils';
-import dateFns from 'date-fns';
+import { format, differenceInWeeks } from 'date-fns';
 configure({ adapter: new Adapter() });
 
 describe('App', () => {
@@ -18,7 +18,7 @@ describe('App', () => {
     expect(app.state().birthDate).toBe(null);
   });
   it('should store todays date in state', () => {
-    expect(app.state().today).toBe(dateFns.format(Date.now(), 'YYYY-MM-DD'));
+    expect(app.state().today).toBe(format(Date.now(), 'YYYY-MM-DD'));
   });
 });
 
@@ -36,7 +36,7 @@ describe('App interaction tests', () => {
   });
   it('should get week difference when birthDate updated', () => {
     const dateInput = app.find(DateInput);
-    const expectedWeekDifference = dateFns.differenceInWeeks(
+    const expectedWeekDifference = differenceInWeeks(
       Date.now(),
       expectedDateValue
     );

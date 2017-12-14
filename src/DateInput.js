@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import dateFns from 'date-fns';
+import { isFuture, parse } from 'date-fns';
 
 export default class DateInput extends Component {
   constructor() {
@@ -17,8 +17,8 @@ export default class DateInput extends Component {
       return;
     };
     const date = this._input.value;
-    const isFuture = dateFns.isFuture(dateFns.parse(date));
-    if (isFuture) {
+    const future = isFuture(parse(date));
+    if (future) {
       alert('you probably werent born in the future, my dude');
       return;
     }
@@ -38,4 +38,5 @@ export default class DateInput extends Component {
 }
 
 DateInput.propTypes = {
+  onSubmit: PropTypes.func,
 };

@@ -6,7 +6,8 @@ const GraphKey = ({ children, axis }) => (
 );
 
 GraphKey.propTypes = {
-  axis: PropTypes.string.isRequired,
+  axis: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default GraphKey;
