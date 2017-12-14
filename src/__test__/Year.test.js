@@ -15,5 +15,9 @@ describe('Year', () => {
 });
 
 describe('Year interaction tests', () => {
-  it('when receiving props.weeksOld, calculates if a Week is active when rendering');
+  const year = shallow(<Year value={0} weeksOld={2} weeksInYear={52} />);
+  it('when receiving props.weeksOld, calculates if a Week is active when rendering', () => {
+    expect(year.find('Week[active=true]').length).toBe(2);
+    expect(year.find('Week[active=false]').length).toBe(50);
+  });
 })

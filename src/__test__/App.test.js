@@ -5,6 +5,7 @@ import { shallow, configure, mount } from 'enzyme';
 import App from './../App';
 import DateInput from './../DateInput';
 import ReactTestUtils from 'react-dom/test-utils';
+import dateFns from 'date-fns';
 configure({ adapter: new Adapter() });
 
 describe('App', () => {
@@ -16,7 +17,9 @@ describe('App', () => {
   it('should have initial state of birthDate: null', () => {
     expect(app.state().birthDate).toBe(null);
   });
-  it('should store todays date when mounting');
+  it('should store todays date in state', () => {
+    expect(app.state().today).toBe(dateFns.format(Date.now(), 'YYYY-MM-DD'));
+  });
 });
 
 describe('App interaction tests', () => {
@@ -31,5 +34,13 @@ describe('App interaction tests', () => {
     dateInput.find('form').simulate('submit', { preventDefault: jest.fn() });
     expect(app.state().birthDate).toBe(expectedDateValue);
   });
-  it('should get week difference when birthDate updated');
+  it('should get week difference when birthDate updated', () => {
+    const dateInput = app.find(DateInput);
+    const expectedWeekDifference = dateFns.differenceInWeeks(
+      Date.now(),
+      expectedDateValue
+    );
+    dateInput.find('form').simulate('submit', { preventDefault: jest.fn() });
+    expect(app.state().weeksOld).toBe(expectedWeekDifference);
+  });
 });
