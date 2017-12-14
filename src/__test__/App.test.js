@@ -16,6 +16,7 @@ describe('App', () => {
   it('should have initial state of birthDate: null', () => {
     expect(app.state().birthDate).toBe(null);
   });
+  it('should store todays date when mounting');
 });
 
 describe('App interaction tests', () => {
@@ -30,4 +31,5 @@ describe('App interaction tests', () => {
     dateInput.find('form').simulate('submit', { preventDefault: jest.fn() });
     expect(app.state().birthDate).toBe(expectedDateValue);
   });
+  it('should get week difference when birthDate updated');
 });

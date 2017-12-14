@@ -13,3 +13,7 @@ describe('Year', () => {
     expect(year.find(Week).length).toBe(52);
   });
 });
+
+describe('Year interaction tests', () => {
+  it('when receiving props.weeksOld, calculates if a Week is active when rendering');
+})
