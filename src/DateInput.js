@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import dateFns from 'date-fns';
 
 export default class DateInput extends Component {
   constructor() {
@@ -16,6 +17,11 @@ export default class DateInput extends Component {
       return;
     };
     const date = this._input.value;
+    const isFuture = dateFns.isFuture(dateFns.parse(date));
+    if (isFuture) {
+      alert('you probably werent born in the future, my dude');
+      return;
+    }
     this.setState({
       date,
     }, this.props.onSubmit(date));
@@ -23,7 +29,7 @@ export default class DateInput extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Enter your birthday</label>
+        <label>Enter your date of birth</label>
         <input ref={(input) => this._input = input} type="date" />
         <input type="submit" />
       </form>

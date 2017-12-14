@@ -3,7 +3,7 @@ import Year from './Year';
 import Label from './Label';
 import GraphKey from './GraphKey';
 
-const Life = ({ yearsInLife }) =>
+const Life = ({ yearsInLife, weeksOld }) =>
   (
     <div className="life">
     <GraphKey axis='x'>Week of the year &rarr;</GraphKey>
@@ -12,9 +12,9 @@ const Life = ({ yearsInLife }) =>
         return (
           <div key={index} className="yearwrapper">
             {index % 5 === 0 ? <Label>{index}</Label> : null}
-            <Year value={index} />
-           </div>
-        )
+            <Year value={index} weeksOld={weeksOld} />
+          </div>
+        );
       })}
     </div>
   );
