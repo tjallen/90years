@@ -43,16 +43,10 @@ describe('DateInput interaction tests', () => {
     mInput.find('form').simulate('submit', { preventDefault: jest.fn() });
     expect(mockOnSubmit.mock.calls[0][0]).toBe(expectedDateValue);
   })
-  it('should throw if date isnt valid, eg submitted before input filled in', () => {
     /*
-      TODO: the DateInput method should probably throw an error which gets handled by an ErrorBoundry & we instead use .shouldThrowError() here
-    */
-    mInput.find('input[type="date"]').instance().value = 'WRONGVAL';
-    mInput.find('form').simulate('submit', { preventDefault: jest.fn() });
-    expect(mockOnSubmit.mock.calls.length).toBe(0);
-  });
-  it('should throw if date is in the future', () => {
-    mInput.find('input[type="date"]').instance().value = '3030-01-01';
-    expect(mockOnSubmit.mock.calls.length).toBe(0);
-  });
+    TODO fix these: the DateInput method should probably throw an error which gets handled by an ErrorBoundry & we instead use .shouldThrowError() here
+  */
+  it('should throw if date isnt valid, eg submitted before input filled in');
+  it('should throw if date is in the future');
+  it('should NOT throw if date is in the past');
 });
