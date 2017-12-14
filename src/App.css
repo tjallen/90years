@@ -2,6 +2,30 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+.birthdate-form {
+  width: 420px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.birthdate-form label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.birthdate-form input {
+  border: 2px solid skyblue;
+}
+
+.birthdate-form input[type='submit'] {
+  background: skyblue;
+  color: #fff;
+  border: none;
+  height: 24px;
+}
+
 .life {
   margin: 30px;
   padding: 30px;
@@ -33,7 +57,7 @@
 
 .label {
   position: absolute;
-  left: -30px;
+  left: 0px;
   top: -3px;
   font-size: 12px;
   line-height: 12px;
@@ -48,7 +72,6 @@
 .week {
   height: 5px;
   width: 5px;
-  border: 1px solid black;
   background-color: transparent;
   margin: 1px;
 }
@@ -58,6 +81,6 @@
 }
 
 .active--true {
-  background-color: blue;
+  background-color: skyblue;
 }
 
