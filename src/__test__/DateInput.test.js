@@ -51,5 +51,8 @@ describe('DateInput interaction tests', () => {
     mInput.find('form').simulate('submit', { preventDefault: jest.fn() });
     expect(mockOnSubmit.mock.calls.length).toBe(0);
   });
-  it('should throw if date is in the future'); // TODO add date-fn mocking
+  it('should throw if date is in the future', () => {
+    mInput.find('input[type="date"]').instance().value = '3030-01-01';
+    expect(mockOnSubmit.mock.calls.length).toBe(0);
+  });
 });
