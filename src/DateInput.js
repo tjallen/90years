@@ -29,7 +29,7 @@ export default class DateInput extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className='birthdate-form'>
-        <label>Enter your date of birth and hit submit to get depressed</label>
+        <label>Enter your date of birth and hit submit for a fun, not-depressing-at-all visualisation</label>
         <input ref={(input) => this._input = input} type="date" />
         <input type="submit" />
       </form>

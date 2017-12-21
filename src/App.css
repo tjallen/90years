@@ -5,7 +5,7 @@
 .birthdate-form {
   width: 420px;
   text-align: center;
-  margin: 20px 0;
+  margin: 5px auto;
 }
 
 .birthdate-form label {
@@ -16,18 +16,20 @@
 }
 
 .birthdate-form input {
-  border: 2px solid skyblue;
+  margin-right: 10px;
 }
 
 .birthdate-form input[type='submit'] {
-  background: skyblue;
+  background: #FF5252;
   color: #fff;
   border: none;
   height: 24px;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .life {
-  margin: 30px;
+  margin: 20px 0 0 0;
   padding: 30px;
   position: relative;
 }
@@ -35,23 +37,25 @@
 .yearwrapper {
   position: relative;
   width: 420px;
+  margin: 0 auto;
 }
 
 .graphkey {
   position: absolute;
   font-size: 1.5rem;
-  color: blue;
+  color: #607D8B;
+  cursor: default;
 }
 
 .graphkey.x {
-  top: -10px;
+  top: -40px;
   left: 30px;
 }
 
 .graphkey.y {
   transform: rotate(-90deg);
   -webkit-font-smoothing: antialiased;
-  top: 50px;
+  top: 10px;
   left: -60px;
 }
 
@@ -61,6 +65,7 @@
   top: -3px;
   font-size: 12px;
   line-height: 12px;
+  color: #455A64;
 }
 
 .year {
@@ -77,10 +82,10 @@
 }
 
 .active--false {
-  background-color: lightgrey;
+  background-color: #CFD8DC;
 }
 
 .active--true {
-  background-color: skyblue;
+  background-color: #FF5252;
 }
 
