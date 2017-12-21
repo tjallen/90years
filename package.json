@@ -2,6 +2,7 @@
   "name": "90years",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://www.thomjamesallen.com/projects/90years",
   "dependencies": {
     "date-fns": "^1.29.0",
     "react": "^16.2.0",
